@@ -3,43 +3,18 @@ import { nanoid } from '$lib/util';
 import { DB_PATH, ADMIN_PASSWORD } from '$env/static/private';
 import { Blob } from 'node:buffer';
 
-const db = new Database(DB_PATH, {
+const db = new Database(process.env.DB_PATH, {
   verbose: console.log
 });
 db.pragma('journal_mode = WAL');
 db.pragma('case_sensitive_like = true');
-
-// // Create 'realisations' table
-// db.exec(`
-//   CREATE TABLE IF NOT EXISTS "realisations" (
-//     "id"            INTEGER PRIMARY KEY AUTOINCREMENT,
-//     "title"         TEXT NOT NULL,
-//     "description"   TEXT,
-//     "created_at"    DATETIME DEFAULT CURRENT_TIMESTAMP,
-//     "updated_at"    DATETIME,
-//     "position"      INTEGER DEFAULT 0
-//   )
-// `);
-
-// // Create 'realisation_images' table
-// db.exec(`
-//   CREATE TABLE IF NOT EXISTS "realisation_images" (
-//     "image_id"      INTEGER PRIMARY KEY AUTOINCREMENT,
-//     "realisation_id" INTEGER,
-//     "mime_type"     TEXT NOT NULL,
-//     "data"          BLOB NOT NULL,
-//     "created_at"    DATETIME DEFAULT CURRENT_TIMESTAMP,
-//     "updated_at"    DATETIME,
-//     FOREIGN KEY ("realisation_id") REFERENCES "realisations" ("id")
-//   )
-// `);
 
 /*
   This can be replaced with any user-based authentication system
 */
 export async function authenticate(password, sessionTimeout) {
   const expires = __getDateTimeMinutesAfter(sessionTimeout);
-  if (password === ADMIN_PASSWORD) {
+  if (password === process.env.ADMIN_PASSWORD) {
     const sessionId = nanoid();
 
     // Now is a good time to remove expired sessions
