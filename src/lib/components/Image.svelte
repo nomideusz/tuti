@@ -6,8 +6,8 @@
   export let placeholder;
   export let alt;
   export let uploadPrompt = undefined;
-  export let maxWidth = 2880;
-  export let maxHeight = 2880;
+  export let maxWidth = 4000;
+  export let maxHeight = 4000;
   export let quality = 0.8;
   export let imagesList = [];
   export let isPlaceholder;
