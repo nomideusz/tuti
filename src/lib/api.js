@@ -3,7 +3,7 @@ import { nanoid } from '$lib/util';
 import { DB_PATH, ADMIN_PASSWORD } from '$env/static/private';
 import { Blob } from 'node:buffer';
 
-const db = new Database(process.env.DB_PATH, {
+const db = new Database(DB_PATH, {
   verbose: console.log
 });
 db.pragma('journal_mode = WAL');
@@ -14,7 +14,7 @@ db.pragma('case_sensitive_like = true');
 */
 export async function authenticate(password, sessionTimeout) {
   const expires = __getDateTimeMinutesAfter(sessionTimeout);
-  if (password === process.env.ADMIN_PASSWORD) {
+  if (password === ADMIN_PASSWORD) {
     const sessionId = nanoid();
 
     // Now is a good time to remove expired sessions
