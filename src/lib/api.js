@@ -2,8 +2,8 @@ import Database from 'better-sqlite3';
 import { nanoid } from '$lib/util';
 import { DB_PATH, ADMIN_PASSWORD } from '$env/static/private';
 import { Blob } from 'node:buffer';
-const DB_PATH = process.env.DB_PATH;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+// const DB_PATH = process.env.DB_PATH;
+// const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const db = new Database(DB_PATH, {
   verbose: console.log
 });
