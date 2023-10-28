@@ -29,9 +29,6 @@ jobs:
         with:
           push: true
           tags: ghcr.io/nomideusz/tuti:latest
-          build-args: |
-            DB_PATH=${{ secrets.DB_PATH }}
-            ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
       - name: Deploy on CapRover
         uses: caprover/deploy-from-github@v1.1.2
         with:

@@ -3,12 +3,6 @@
 FROM node:18-slim AS builder
 WORKDIR /app
 
-# Ustaw zmienne środowiskowe na podstawie argumentów budowy
-ARG DB_PATH
-ARG ADMIN_PASSWORD
-ENV DB_PATH=$DB_PATH
-ENV ADMIN_PASSWORD=$ADMIN_PASSWORD
-
 # Install packages needed to build node modules
 RUN apt update -qq && \
     apt install -y python-is-python3 pkg-config build-essential
@@ -21,7 +15,13 @@ RUN npm ci --omit dev
 COPY . .
 
 RUN if [ ! -d data ]; then mkdir data; fi
-RUN npm run build
+RUN --mount=type=secret,id=DB_PATH \
+    --mount=type=secret,id=ADMIN_PASSWORD \
+    --mount=type=secret,id=ORIGIN \
+    DB_PATH="$(cat /run/secrets/DB_PATH)" \
+    ADMIN_PASSWORD="$(cat /run/secrets/ADMIN_PASSWORD)" \
+    ORIGIN="$(cat /run/secrets/ORIGIN)" \
+    npm run build
 
 # Stage 2: Run
 FROM node:18-slim AS runner
