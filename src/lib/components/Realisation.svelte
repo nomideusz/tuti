@@ -5,7 +5,6 @@
   import { isEditing } from '$lib/stores.js';
   import { onMount } from 'svelte';
   import { loadBp } from '$lib/load-bp';
-  import Img from '@zerodevx/svelte-img';
   import Image from './Image.svelte';
   import 'bigger-picture/css';
   import { flip } from 'svelte/animate';
