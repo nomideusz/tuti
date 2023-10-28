@@ -8,7 +8,7 @@
   export let uploadPrompt = undefined;
   export let maxWidth = 2400;
   export let maxHeight = 2400;
-  export let quality = 0.8;
+  export let quality = 0.7;
   export let imagesList = [];
   export let isPlaceholder;
   export let previewSrc;

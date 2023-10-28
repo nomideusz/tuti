@@ -102,7 +102,11 @@ export function resizeImage(file, maxWidth, maxHeight, quality) {
         context.drawImage(image, 0, 0, newWidth, newHeight);
         canvas.toBlob(
           blob => {
-            resolve(blob);
+            if (blob.size <= 700000) {
+              resolve(blob);
+            } else {
+              reject('Image size is too large.');
+            }
           },
           file.type,
           quality
