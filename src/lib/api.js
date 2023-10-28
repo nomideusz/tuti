@@ -9,7 +9,6 @@ const db = new Database(DB_PATH, {
 });
 db.pragma('journal_mode = WAL');
 db.pragma('case_sensitive_like = true');
-
 /*
   This can be replaced with any user-based authentication system
 */
