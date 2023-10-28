@@ -11,4 +11,4 @@ vite.config.ts.timestamp-*
 *.sqlite*
 fly.toml
 .tool-versions
-/data/db.tutitutu
+data/db.tutitutu
