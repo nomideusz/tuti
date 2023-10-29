@@ -105,7 +105,7 @@ export function resizeImage(file, maxWidth, maxHeight, quality) {
             if (blob.size <= 700000) {
               resolve(blob);
             } else {
-              reject('Image size is too large. Limit is 700 000 B.');
+              reject('Image size is too large. Limit is 700 000 B (after reduction).');
             }
           },
           file.type,
