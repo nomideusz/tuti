@@ -5,7 +5,9 @@
   import SecondaryButton from '$lib/components/SecondaryButton.svelte';
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
+  import { openModal, closeAllModals } from 'svelte-modals';
 
+  import ConfirmModal from '$lib/components/ConfirmModal.svelte';
   // import { realisations } from '$lib/stores';
 
   import Realisation from '$lib/components/Realisation.svelte';
@@ -19,11 +21,23 @@
     realisations.push({
       title: 'TYTUŁ REALIZACJI',
       images: [],
-      id: lastId // use the incremented id
+      id: lastId
     });
     realisations = realisations; // trigger update
   }
-
+  function handleDelete(index) {
+    openModal(ConfirmModal, {
+      title: 'Are you absolutely sure?',
+      labels: {
+        cancel: 'No',
+        confirm: 'Yes'
+      },
+      onConfirm: () => {
+        closeAllModals();
+        deleteRealisation(index);
+      }
+    });
+  }
   function deleteRealisation(index) {
     realisations.splice(index, 1);
     realisations = realisations; // trigger update
@@ -68,10 +82,11 @@
         bind:realisation
         firstEntry={i === 0}
         lastEntry={i === realisations.length - 1}
-        on:delete={() => deleteRealisation(i)}
+        on:delete={() => handleDelete(i)}
         on:up={() => moveRealisation(i, 'up')}
         on:down={() => moveRealisation(i, 'down')}
         on:updateImages={event => updateImageOrder(event, i)}
+        on:deleteItems
       />
     </div>
   {/each}

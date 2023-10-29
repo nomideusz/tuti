@@ -117,6 +117,12 @@
     showUserMenu = false;
   }
 
+  let itemsToDelete = [];
+
+  function handleDeleteItems(event) {
+    itemsToDelete = [...itemsToDelete, ...event.detail.itemsToDelete];
+  }
+
   async function savePage() {
     try {
       // Only persist the start page when logged in as an admin
@@ -130,10 +136,13 @@
             publHeading,
             publData,
             realData
-          }
+          },
+          itemsToDelete
         });
       }
       $isEditing = false;
+      console.log(itemsToDelete);
+      itemsToDelete = [];
     } catch (err) {
       console.error(err);
       alert('There was an error. Please try again.');
@@ -184,7 +193,7 @@
     </a>
   </section>
   <section id="realisations" class="pb-4 lg:flex">
-    <Realisations bind:realisations={realData} />
+    <Realisations bind:realisations={realData} on:deleteItems={handleDeleteItems} />
   </section>
   <section id="workshop" class="pb-4 min-h-screen">
     <Workshop bind:workshop />

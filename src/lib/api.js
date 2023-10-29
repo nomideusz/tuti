@@ -153,6 +153,21 @@ export function getAsset(asset_id) {
   };
 }
 
+export function deleteAsset(assetId, currentUser) {
+  if (!currentUser) throw new Error('Not authorized');
+
+  try {
+    const info = db.prepare('DELETE FROM assets WHERE asset_id LIKE ?').run(assetId);
+    if (info.changes > 0) {
+      return { status: 'ok' };
+    } else {
+      return { status: 'error', message: 'Asset not found' };
+    }
+  } catch (error) {
+    return { status: 'error', message: error.message };
+  }
+}
+
 /**
  * Helpers
  */

@@ -1,5 +1,6 @@
 <script>
   import PlainText from './PlainText.svelte';
+  import { fetchJSON } from '$lib/util';
   import { classNames } from '$lib/util';
   import { createEventDispatcher } from 'svelte';
   import { isEditing } from '$lib/stores.js';
@@ -8,7 +9,12 @@
   import Image from './Image.svelte';
   import 'bigger-picture/css';
   import { flip } from 'svelte/animate';
+  import { openModal, closeAllModals } from 'svelte-modals';
+
+  import ConfirmModal from '$lib/components/ConfirmModal.svelte';
   import { dndzone, SOURCES, TRIGGERS } from 'svelte-dnd-action';
+
+  const dispatch = createEventDispatcher();
   let placeholder = '/images/person-placeholder.jpg';
   let items = [];
   let dragDisabled = true;
@@ -53,9 +59,24 @@
   function handleKeyDown(event) {
     if ((event.key === 'Enter' || event.key === ' ') && dragDisabled) dragDisabled = false;
   }
-
-  function deleteItem(index) {
+  function handleDelete(index, src) {
+    openModal(ConfirmModal, {
+      title: 'Are you absolutely sure?',
+      labels: {
+        cancel: 'No',
+        confirm: 'Yes'
+      },
+      onConfirm: () => {
+        closeAllModals();
+        deleteItem(index, src);
+      }
+    });
+  }
+  function deleteItem(index, src) {
     items.splice(index, 1);
+    let id = src.split('/assets/').join('');
+    const itemsToDelete = [id]; // lista id do usunięcia
+    dispatch('deleteItems', { itemsToDelete });
     items = items; // trigger update
   }
 
@@ -64,8 +85,6 @@
     { a: 'up', d: 'M4.5 15.75l7.5-7.5 7.5 7.5' },
     { a: 'down', d: 'M19.5 8.25l-7.5 7.5-7.5-7.5' }
   ];
-
-  const dispatch = createEventDispatcher();
 
   export let realisation;
   export let firstEntry = false;
@@ -138,7 +157,7 @@
             >
               <button
                 class="w-6 h-6 flex justify-center items-center rounded-full link-bg-invert link"
-                on:click={() => deleteItem(i)}
+                on:click={handleDelete(i, image.src)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +212,7 @@
         <Image
           class="rounded-full w-auto h-20"
           bind:src={image.src}
-          alt="Nowa realizacja"
+          alt="Nowe zdjęcie"
           bind:imagesList={items}
           isPlaceholder={true}
         />
