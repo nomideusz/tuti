@@ -1,6 +1,16 @@
 <script>
   import '../app.css';
   import { Modals, closeModal } from 'svelte-modals';
+  import { browser } from '$app/environment';
+  import '$lib/i18n';
+  import { locale, waitLocale } from 'svelte-i18n';
+
+  export async function load() {
+    if (browser) {
+      locale.set(window.navigator.language);
+    }
+    await waitLocale();
+  }
   // import { Svane } from '@shipbit/svane';
   // import { browser } from '$app/environment';
 </script>

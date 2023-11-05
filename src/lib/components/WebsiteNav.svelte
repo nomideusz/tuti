@@ -3,12 +3,10 @@
   import NotEditable from './NotEditable.svelte';
   import Navbar from './Navbar.svelte';
   import LogoSaw from '$lib/components/LogoSaw.svelte';
-  import { Hamburger } from 'svelte-hamburgers';
   import { isEditing, LINKS } from '$lib/stores.js';
   import { windowScrollStore } from 'svelte-legos';
   import { windowSizeStore } from 'svelte-legos';
   import { onMount } from 'svelte';
-  import { fly } from 'svelte/transition';
 
   const size = windowSizeStore();
   const position = windowScrollStore();
@@ -35,6 +33,7 @@
         isDynamic = true;
       } else {
         isActive = false;
+        open = false;
       }
     }
 
@@ -68,13 +67,13 @@
     class="
       {$isEditing ? 'hidden' : 'navBar absolute mx-auto z-50 w-full px-[6dvi]'}
       {isActive && !$isEditing ? 'active' : ''}
-      {isDynamic && !$isEditing ? 'dynamic' : 'pt-4 sm:pt-10 xl:pt-12'}  {y >= $size.height &&
-    y < $size.height + SCROLL_BUFFER
+      {isDynamic && !$isEditing ? 'dynamic max-md:hidden' : 'pt-4 md:pt-10 xl:pt-12'}  {y >=
+      $size.height && y < $size.height + SCROLL_BUFFER
       ? 'hidden'
       : ''}"
     style={y < $size.height ? '' : 'position: fixed; width:100%;'}
   >
-    <div class="flex justify-between items-start">
+    <div class="md:flex justify-between items-start">
       <!-- LOGO -->
       <a
         class="flex flex-col justify-start leading-none text-center text-primary {isDynamic
@@ -95,24 +94,14 @@
       </a>
       <!-- END LOGO -->
 
-      <Navbar {isDynamic} bind:showUserMenu />
-      <span class="md:hidden mt-1 ml-2">
-        <Hamburger bind:open --padding="0" type="boring" --color="white" --active-color="black" />
-      </span>
-    </div>
-    <div class="md:hidden">
-      {#if open}
-        <ul class="text-center flex flex-col gap-7 mt-4 uppercase font-bold text-xl tracking-[4px]">
-          {#each LINKS as link, i}
-            <li transition:fly|global={{ y: -15, delay: 50 * i }}>
-              <a href={link.url}>{link.name}</a>
-            </li>
-          {/each}
-        </ul>
-      {/if}
-    </div>
-    <div class="flex justify-end mr-2 -mt-8 {isDynamic || $isEditing ? 'hidden' : ''}">
-      <LogoSaw />
+      <Navbar {isDynamic} bind:showUserMenu bind:open />
+      <div
+        class="hidden md:flex justify-end mr-2 -mt-8 {isDynamic || $isEditing
+          ? 'hidden md:hidden'
+          : ''}"
+      >
+        <LogoSaw />
+      </div>
     </div>
   </header>
 </NotEditable>
@@ -126,9 +115,6 @@
     margin: 0 auto;
   }
   .navBar.dynamic {
-    @apply py-2 border-b-2 border-b-white;
-    background-color: #000;
-    background-size: cover;
-    opacity: 90%;
+    @apply py-2 border-b-2 border-b-white bg-primary bg-cover opacity-90;
   }
 </style>

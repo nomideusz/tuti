@@ -137,6 +137,7 @@ div.bp-img-wrap {
 div.bp-cap {
   position: absolute;
   top: 16px;
+  text-transform: uppercase;
   background: rgba(9, 9, 9, 0.8);
   color: rgba(255, 255, 255, 0.9);
   border-radius: 4px;

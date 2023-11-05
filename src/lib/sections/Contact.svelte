@@ -103,11 +103,20 @@
     </li>
     <li>
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/maria-kowalewska-786767229/"
         target="_blank"
         class="inline-flex justify-center items-center w-[7dvw] h-[7dvw] md:w-[6dvw] md:h-[6dvw] lg:w-[4dvw] lg:h-[4dvw] xl:w-[60px] xl:h-[60px] rounded-full text-primary text-[3.4dvw] sm:text-[3dvw] lg:text-[1.8dvw] font-bold"
       >
         L
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://pl.pinterest.com/tutitutu_wnetrza/"
+        target="_blank"
+        class="inline-flex justify-center items-center w-[7dvw] h-[7dvw] md:w-[6dvw] md:h-[6dvw] lg:w-[4dvw] lg:h-[4dvw] xl:w-[60px] xl:h-[60px] rounded-full text-primary text-[3.4dvw] sm:text-[3dvw] lg:text-[1.8dvw] font-bold"
+      >
+        P
       </a>
     </li>
   </ul>
@@ -115,7 +124,7 @@
 
 <style>
   .big {
-    font-size: clamp(2.4rem, calc(3.4dvw), 7rem);
+    font-size: clamp(2rem, calc(3.4dvw), 7rem);
   }
 
   .small {

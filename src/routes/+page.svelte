@@ -19,6 +19,7 @@
   import { browser } from '$app/environment';
   import { navigating } from '$app/stores';
   import { windowSizeStore } from 'svelte-legos';
+  import { _ } from 'svelte-i18n';
   const size = windowSizeStore();
   export let data;
 

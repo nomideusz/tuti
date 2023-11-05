@@ -1,7 +1,13 @@
 <script>
   import { isEditing, currentUser, LINKS, activeLink } from '$lib/stores.js';
   export let showUserMenu;
-  export let isDynamic;
+  import { Hamburger } from 'svelte-hamburgers';
+  export let isDynamic, open;
+  import { locale } from 'svelte-i18n';
+  import { fly } from 'svelte/transition';
+  function switchLocale(newLocale) {
+    $locale = newLocale;
+  }
 </script>
 
 <div class="{isDynamic ? 'mx-auto' : ''} {isEditing ? '' : ''}" aria-label="Global">
@@ -14,7 +20,7 @@
         <button
           on:click={() => (showUserMenu = !showUserMenu)}
           title={$currentUser.name}
-          class="float-right md:mt-1 ml-5 mr-2"
+          class="absolute right-0 md:mt-12 mr-12"
         >
           <span
             class="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border-2"
@@ -47,8 +53,35 @@
             >
           </li>
         {/each}
+        <!-- <li>
+          {#if $locale === 'pl'}
+            <button on:click={() => switchLocale('en')}>EN</button>
+          {:else}
+            <button on:click={() => switchLocale('pl')}>PL</button>
+          {/if}
+        </li> -->
       </ul>
     </div>
+  </div>
+  <div class="md:hidden absolute right-8 top-5">
+    <Hamburger bind:open --padding="0" type="boring" --color="white" --active-color="white" />
+  </div>
+
+  <div class="md:hidden">
+    {#if open}
+      <ul
+        class="text-center flex flex-col gap-7 mt-4 mb-6 uppercase font-bold text-xl tracking-[4px]"
+      >
+        {#if isDynamic}
+          <li><a href="#start">start</a></li>
+        {/if}
+        {#each LINKS as link, i}
+          <li transition:fly|global={{ y: -15, delay: 50 * i }}>
+            <a href={link.url}>{link.name}</a>
+          </li>
+        {/each}
+      </ul>
+    {/if}
   </div>
 </div>
 

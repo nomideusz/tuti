@@ -222,7 +222,6 @@
     <div
       class="cursor-pointer overflow-hidden relative group"
       on:click={event => openBiggerPicture(realisation, event)}
-      on:touchend={event => openBiggerPicture(realisation, event)}
     >
       <Image
         class="object-cover aspect-video w-full group-hover:scale-110 transition duration-300 ease-in-out"

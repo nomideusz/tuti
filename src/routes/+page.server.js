@@ -1,4 +1,4 @@
-import { getPage, getRealisations } from '$lib/api';
+import { getPage } from '$lib/api';
 
 export async function load({ locals }) {
   const currentUser = locals.user;

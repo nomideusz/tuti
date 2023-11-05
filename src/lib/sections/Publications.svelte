@@ -7,6 +7,7 @@
   import SecondaryButton from '$lib/components/SecondaryButton.svelte';
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
+  import { _ } from 'svelte-i18n';
   let w;
   let h;
   export let publications, publHeading;
@@ -76,7 +77,7 @@
   </ul>
   {#if $isEditing}
     <div class="text-center pb-12 border-b border-gray-100">
-      <SecondaryButton on:click={addPublication}>Add publication</SecondaryButton>
+      <SecondaryButton on:click={addPublication}>{$_('button.addPublication')}</SecondaryButton>
     </div>
   {/if}
 </article>
