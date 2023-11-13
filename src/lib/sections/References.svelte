@@ -3,6 +3,7 @@
   import { FxReveal as Img } from '@zerodevx/svelte-img';
   import ref1 from '$lib/images/originals/ref1.jpg?as=real';
   import ref2 from '$lib/images/originals/ref2.jpg?as=real';
+  import { _ } from 'svelte-i18n';
 </script>
 
 <div class="flex">
@@ -10,7 +11,9 @@
     class="flex justify-center items-center h-fit w-full lg:w-fit lg:h-[17.5dvw] text-white bg-no-repeat bg-cover bg-bottom p-[7.7dvw]"
     style="background-image: url('{bgReferences}');"
   >
-    <h2 class="uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">Referencje</h2>
+    <h2 class="uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">
+      {$_('references')}
+    </h2>
   </div>
 </div>
 <div class="flex flex-col lg:flex-row gap-1 px-[6dvi] justify-end py-4 md:py-8">

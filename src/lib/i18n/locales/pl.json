@@ -1,5 +1,10 @@
 {
   "title": "TUTITUTU",
+  "realisations": "Realizacje",
+  "workshop": "Pracownia",
+  "publications": "Publikacje",
+  "references": "Referencje",
+  "contact": "Kontakt",
   "button.addPublication": "Dodaj nową Publikację",
   "field.birth": "Date of birth",
   "field.genre": "Genre"

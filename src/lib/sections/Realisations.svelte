@@ -6,6 +6,7 @@
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
   import { openModal, closeAllModals } from 'svelte-modals';
+  import { _ } from 'svelte-i18n';
 
   import ConfirmModal from '$lib/components/ConfirmModal.svelte';
   // import { realisations } from '$lib/stores';
@@ -71,7 +72,7 @@
   style="--bg-img: url({bgRealisations}); --bg-img-mobile: url({bgRealisationsMobile})"
 >
   <h2 class="mx-auto uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">
-    Realizacje
+    {$_('realisations')}
   </h2>
 </div>
 

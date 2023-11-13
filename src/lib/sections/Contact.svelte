@@ -4,7 +4,7 @@
   import bgContactMobile from '$lib/images/originals/400px_bg_contact.jpg?rotate=90&format=avif';
   import Img from '@zerodevx/svelte-img';
   import logo_saw from '$lib/images/logo_saw.png?w=300&as=run:0';
-
+  import { _ } from 'svelte-i18n';
   export let contact;
 </script>
 
@@ -13,7 +13,7 @@
   style="--bg-img: url({bgContact}); --bg-img-mobile: url({bgContactMobile})"
 >
   <h2 class="place-self-center uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">
-    Kontakt
+    {$_('contact')}
   </h2>
 </div>
 <div class="flex flex-col lg:flex-row items-center grow py-16 lg:py-24">

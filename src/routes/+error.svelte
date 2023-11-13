@@ -38,7 +38,7 @@
                 stroke-linecap="round"
               />
             </svg>
-            Back to Homepage
+            Back to plpage
           </a>
         </div>
       </div>

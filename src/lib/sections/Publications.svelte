@@ -49,7 +49,9 @@
   class="lg:absolute lg:right-0 flex justify-center items-center heading-wrapper h-fit w-full lg:w-[17.5dvw] text-white bg-no-repeat bg-cover bg-[center_top] py-[7.7dvw]"
   style="--bg-img: url({bgPublications}); --bg-img-mobile: url({bgPublicationlgobile})"
 >
-  <h2 class="uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">Publikacje</h2>
+  <h2 class="uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">
+    {$_('publications')}
+  </h2>
 </div>
 <article
   class="mx-auto px-[6dvi] grid content-center lg:pr-[19dvw] xl:max-w-screen-2xl py-4"

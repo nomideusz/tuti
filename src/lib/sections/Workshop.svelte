@@ -1,9 +1,8 @@
 <script>
   import RichText from '$lib/components/RichText.svelte';
-  import PlainText from '$lib/components/PlainText.svelte';
   import removeWidows from '$lib/scripts/removeWidows';
   import bgWorkshop from '$lib/images/originals/1200px_bg_workshop.jpg?format=avif';
-
+  import { _ } from 'svelte-i18n';
   export let workshop;
 </script>
 
@@ -12,7 +11,9 @@
     class="flex justify-center items-center h-fit w-full lg:w-fit lg:h-[17.5dvw] text-white bg-no-repeat bg-cover bg-left p-[7.7dvw]"
     style="background-image: url('{bgWorkshop}');"
   >
-    <h2 class="uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">Pracownia</h2>
+    <h2 class="uppercase font-bold tracking-[0.2em] text-[8dvw] lg:text-[5.5dvw]">
+      {$_('workshop')}
+    </h2>
   </div>
 </div>
 <div class="mx-auto px-[6dvi] xl:max-w-screen-2xl py-4 lg:py-8">

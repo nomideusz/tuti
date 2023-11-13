@@ -6,9 +6,9 @@
   import { locale, waitLocale } from 'svelte-i18n';
 
   export async function load() {
-    if (browser) {
-      locale.set(window.navigator.language);
-    }
+    // if (browser) {
+    //   locale.set(window.navigator.language);
+    // }
     await waitLocale();
   }
   // import { Svane } from '@shipbit/svane';
@@ -20,6 +20,9 @@
     slot="backdrop"
     class="fixed inset-0 z-50 overflow-y-auto text-black"
     on:click={closeModal}
+    on:keypress={closeModal}
+    role="button"
+    tabindex="0"
   />
 </Modals>
 <!-- {#if import.meta.env.DEV && browser}

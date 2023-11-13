@@ -2,10 +2,11 @@ import { getPage } from '$lib/api';
 
 export async function load({ locals }) {
   const currentUser = locals.user;
-  const page = await getPage('home');
-
+  const pl = await getPage('pl');
+  const en = await getPage('en');
   return {
     currentUser,
-    page
+    pl,
+    en
   };
 }

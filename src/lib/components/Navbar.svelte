@@ -3,10 +3,11 @@
   export let showUserMenu;
   import { Hamburger } from 'svelte-hamburgers';
   export let isDynamic, open;
-  import { locale } from 'svelte-i18n';
   import { fly } from 'svelte/transition';
+  import { locale } from 'svelte-i18n';
+  import { _ } from 'svelte-i18n';
   function switchLocale(newLocale) {
-    $locale = newLocale;
+    locale.set(newLocale);
   }
 </script>
 
@@ -43,23 +44,23 @@
         </button>
       {/if}
       <ul class="flex gap-[1.3dvw] ml-8">
+        <li>
+          {#if $locale === 'pl'}
+            <button on:click={() => switchLocale('en')}>EN</button>
+          {:else}
+            <button on:click={() => switchLocale('pl')}>PL</button>
+          {/if}
+        </li>
         {#if isDynamic}
           <li><a href="#start">start</a></li>
         {/if}
         {#each LINKS as link}
           <li>
             <a href={link.url} aria-current={$activeLink === link.url} class="scrollactive-item"
-              >{link.name}</a
+              >{$_(link.name)}</a
             >
           </li>
         {/each}
-        <!-- <li>
-          {#if $locale === 'pl'}
-            <button on:click={() => switchLocale('en')}>EN</button>
-          {:else}
-            <button on:click={() => switchLocale('pl')}>PL</button>
-          {/if}
-        </li> -->
       </ul>
     </div>
   </div>
@@ -77,7 +78,7 @@
         {/if}
         {#each LINKS as link, i}
           <li transition:fly|global={{ y: -15, delay: 50 * i }}>
-            <a href={link.url}>{link.name}</a>
+            <a href={link.url}>{$_(link.name)}</a>
           </li>
         {/each}
       </ul>

@@ -19,6 +19,8 @@
   import { browser } from '$app/environment';
   import { navigating } from '$app/stores';
   import { windowSizeStore } from 'svelte-legos';
+  import { locale } from 'svelte-i18n';
+  import { get } from 'svelte/store';
   import { _ } from 'svelte-i18n';
   const size = windowSizeStore();
   export let data;
@@ -83,14 +85,17 @@
       articleDate: '03/2017'
     }
   ];
+
+  $: pageData = $locale === 'pl' ? data.pl : data.en;
+  $: console.log($locale, pageData);
   let title, contactInfo, workshop, publHeading, publData, realData, showUserMenu;
 
   function initOrReset() {
     $currentUser = data.currentUser;
-    title = data.page?.title || 'TUTITUTU';
+    title = pageData?.title || 'TUTITUTU';
     contactInfo = JSON.parse(
       JSON.stringify(
-        data.page?.contactInfo || {
+        pageData?.contactInfo || {
           name: 'Maria Kowalewska',
           title: 'architekt wnętrz M.A., M.A.',
           email: 'tutitutu@tutitutu.pl',
@@ -100,12 +105,12 @@
         }
       )
     );
-    workshop = data.page?.workshop || WORKSHOP_PLACEHOLDER;
+    workshop = pageData?.workshop || WORKSHOP_PLACEHOLDER;
     publHeading =
-      data.page?.publHeading ||
+      pageData?.publHeading ||
       'Na przestrzeni ponad dwóch dekad istnienia pracowni wielokrotnie pisały o nas pisma branżowe:';
-    publData = JSON.parse(JSON.stringify(data.page?.publData || PUBLICATIONS_PLACEHOLDER));
-    realData = JSON.parse(JSON.stringify(data.page?.realData || REALISATIONS_PLACEHOLDER));
+    publData = JSON.parse(JSON.stringify(pageData?.publData || PUBLICATIONS_PLACEHOLDER));
+    realData = JSON.parse(JSON.stringify(pageData?.realData || REALISATIONS_PLACEHOLDER));
     $isEditing = false;
   }
 
@@ -126,10 +131,12 @@
 
   async function savePage() {
     try {
-      // Only persist the start page when logged in as an admin
       if (currentUser) {
+        const currentLocale = get(locale).split('-')[0];
+        const pageId = currentLocale === 'en' ? 'en' : 'pl';
+
         await fetchJSON('POST', '/api/save-page', {
-          pageId: 'home',
+          pageId: pageId,
           page: {
             title,
             contactInfo,
@@ -142,15 +149,15 @@
         });
       }
       $isEditing = false;
-      console.log(itemsToDelete);
-      itemsToDelete = [];
     } catch (err) {
       console.error(err);
       alert('There was an error. Please try again.');
     }
   }
 
-  initOrReset();
+  $: if (pageData) {
+    initOrReset();
+  }
 </script>
 
 <svelte:head>
