@@ -67,7 +67,7 @@
     class="
       {$isEditing ? 'hidden' : 'navBar absolute mx-auto z-50 w-full px-[6dvi]'}
       {isActive && !$isEditing ? 'active' : ''}
-      {isDynamic && !$isEditing ? 'dynamic max-md:hidden' : 'pt-4 md:pt-10 xl:pt-12'}  {y >=
+      {isDynamic && !$isEditing ? 'dynamic hidden md:block' : 'pt-4 md:pt-10 xl:pt-12'}  {y >=
       $size.height && y < $size.height + SCROLL_BUFFER
       ? 'hidden'
       : ''}"
