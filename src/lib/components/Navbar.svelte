@@ -11,11 +11,11 @@
   }
 </script>
 
-<div class="{isDynamic ? 'mx-auto' : ''} {isEditing ? '' : ''}" aria-label="Global">
-  <div class="hidden overflow-hidden grow md:block">
+<div class="{isDynamic ? 'mx-auto' : 'grow'} {isEditing ? '' : ''}" aria-label="Global">
+  <div class="hidden overflow-hidden md:grow md:block">
     <div
-      class="flex uppercase font-bold tracking-[0.2em]"
-      style="font-size: clamp(0.85rem, calc(2.3dvw * 0.67), 1.5rem);"
+      class="flex grow uppercase font-bold tracking-[0.14em]"
+      style="font-size: clamp(0.85rem, calc(2.2dvw * 0.67), 1.5rem);"
     >
       {#if $currentUser}
         <button
@@ -43,8 +43,9 @@
           </span>
         </button>
       {/if}
-      <ul class="flex gap-[1.3dvw] ml-8">
-        <li>
+
+      <ul class="flex grow gap-[1.1dvw] ml-8">
+        <li class="grow">
           {#if $locale === 'pl'}
             <button on:click={() => switchLocale('en')}>EN</button>
           {:else}
@@ -55,7 +56,7 @@
           <li><a href="#start">start</a></li>
         {/if}
         {#each LINKS as link}
-          <li>
+          <li class="flex-none">
             <a href={link.url} aria-current={$activeLink === link.url} class="scrollactive-item"
               >{$_(link.name)}</a
             >
@@ -64,7 +65,14 @@
       </ul>
     </div>
   </div>
-  <div class="md:hidden absolute right-8 top-5">
+  <div class="md:hidden absolute flex right-8 top-5">
+    <div class="mr-10 -mt-[4px] text-2xl font-bold">
+      {#if $locale === 'pl'}
+        <button on:click={() => switchLocale('en')}>EN</button>
+      {:else}
+        <button on:click={() => switchLocale('pl')}>PL</button>
+      {/if}
+    </div>
     <Hamburger bind:open --padding="0" type="boring" --color="white" --active-color="white" />
   </div>
 
