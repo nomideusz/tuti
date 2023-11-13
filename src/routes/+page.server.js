@@ -1,9 +1,9 @@
 import { getPage } from '$lib/api';
 
-export function load({ locals }) {
+export async function load({ locals }) {
   const currentUser = locals.user;
-  const pl = getPage('pl');
-  const en = getPage('en');
+  const pl = await getPage('pl');
+  const en = await getPage('en');
   return {
     currentUser,
     pl,
