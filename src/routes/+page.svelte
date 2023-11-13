@@ -87,7 +87,6 @@
   ];
 
   $: pageData = $locale === 'pl' ? data.pl : data.en;
-  $: console.log($locale, pageData);
   let title, contactInfo, workshop, publHeading, publData, realData, showUserMenu;
 
   function initOrReset() {
