@@ -9,7 +9,6 @@
   import Contact from '$lib/sections/Contact.svelte';
   import Realisations from '$lib/sections/Realisations.svelte';
   import References from '$lib/sections/References.svelte';
-  import Image from '$lib/components/Image.svelte';
   import Img from '@zerodevx/svelte-img';
   import mmdesktop from '$lib/images/originals/m.jpg?as=real';
   import mmMobile from '$lib/images/originals/m.jpg?as=real';
