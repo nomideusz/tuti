@@ -95,13 +95,13 @@
       <!-- END LOGO -->
 
       <Navbar {isDynamic} bind:showUserMenu bind:open />
-      <div
-        class="hidden md:flex justify-end mr-2 -mt-8 {isDynamic || $isEditing
-          ? 'hidden md:hidden'
-          : ''}"
-      >
-        <LogoSaw />
-      </div>
+    </div>
+    <div
+      class="hidden md:flex justify-end mr-2 -mt-8 {isDynamic || $isEditing
+        ? 'hidden md:hidden'
+        : ''}"
+    >
+      <LogoSaw />
     </div>
   </header>
 </NotEditable>
