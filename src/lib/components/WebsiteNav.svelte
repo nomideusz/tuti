@@ -65,8 +65,9 @@
 <NotEditable>
   <header
     class="
-      {$isEditing ? 'hidden' : 'navBar absolute mx-auto z-50 w-full px-[6dvi]'}
+      {$isEditing ? 'absolute' : 'navBar absolute mx-auto z-50 w-full px-[6dvi]'}
       {isActive && !$isEditing ? 'active' : ''}
+      {isActive && $isEditing ? 'hidden' : ''}
       {isDynamic && !$isEditing ? 'dynamic hidden md:block' : 'pt-4 md:pt-10 xl:pt-12'}  {y >=
       $size.height && y < $size.height + SCROLL_BUFFER
       ? 'hidden'
