@@ -5,7 +5,6 @@
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
   import { onMount } from 'svelte';
-  import analytics from '../analytics';
 
   export async function load() {
     if (browser) {
@@ -18,7 +17,6 @@
 
   onMount(async () => {
     locale.set(window.navigator.language);
-    analytics.page();
   });
 </script>
 

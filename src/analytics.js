@@ -1,7 +1,7 @@
 import Analytics from 'analytics';
-import { googleAnalytics } from '@analytics/google-analytics';
+import googleAnalytics from '@analytics/google-analytics';
 
-const analytics = Analytics({
+export const analytics = Analytics({
   app: 'tutitutu',
 
   plugins: [
@@ -10,5 +10,3 @@ const analytics = Analytics({
     })
   ]
 });
-
-export default analytics;
