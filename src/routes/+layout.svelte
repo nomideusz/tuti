@@ -4,7 +4,7 @@
   import { browser } from '$app/environment';
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import analytics from '../analytics';
+  // import analytics from '../analytics';
   locale.set('en');
   export async function load() {
     if (browser) {
@@ -14,12 +14,9 @@
   }
   // import { Svane } from '@shipbit/svane';
   // import { browser } from '$app/environment';
-  analytics.page();
+  // analytics.page();
 </script>
 
-<svelte:head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8R12WG9TGW"></script>
-</svelte:head>
 <Modals>
   <div
     slot="backdrop"
