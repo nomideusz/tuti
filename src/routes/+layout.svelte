@@ -5,10 +5,10 @@
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
   import Analytics from '$lib/components/Analytics.svelte';
-  locale.set('en');
+  // locale.set('en');
   export async function load() {
     if (browser) {
-      locale.set(window.navigator.language);
+      locale.set(window.navigator.language).split('-')[0];
     }
     await waitLocale();
   }
