@@ -4,7 +4,7 @@
   import { browser } from '$app/environment';
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import Analytics from '$lib/components/Analytics.svelte';
+  import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
   locale.set('en');
   export async function load() {
     if (browser) {
@@ -31,4 +31,4 @@
 {/if} -->
 
 <slot />
-<Analytics />
+<GoogleAnalytics properties={['G-8R12WG9TGW']} />

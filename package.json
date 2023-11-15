@@ -26,6 +26,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@beyonk/svelte-google-analytics": "^2.6.4",
     "@egjs/svelte-grid": "^1.14.2",
     "@fontsource/jost": "^4.5.13",
     "@splidejs/splide-extension-intersection": "^0.2.0",

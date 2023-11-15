@@ -24,15 +24,6 @@
   const size = windowSizeStore();
   export let data;
 
-  import { analyticsStore } from '$lib/stores.js';
-
-  const new_event = {
-    id: 'any-random-id',
-    data: {}, //anything you want to send to GA,
-    event: 'name-of-your-event',
-    type: 'event'
-  };
-  analyticsStore.update(existing_events => [...existing_events, new_event]);
   // --------------------------------------------------------------------------
   // DEFAULT PAGE CONTENT - AJDUST TO YOUR NEEDS
   // --------------------------------------------------------------------------
