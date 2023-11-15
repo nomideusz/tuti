@@ -4,8 +4,8 @@
   import { browser } from '$app/environment';
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import { onMount } from 'svelte';
-
+  import Analytics from '$lib/components/Analytics.svelte';
+  locale.set('pl');
   export async function load() {
     if (browser) {
       locale.set(window.navigator.language);
@@ -14,10 +14,6 @@
   }
   // import { Svane } from '@shipbit/svane';
   // import { browser } from '$app/environment';
-
-  onMount(async () => {
-    locale.set(window.navigator.language);
-  });
 </script>
 
 <Modals>
@@ -33,5 +29,5 @@
 <!-- {#if import.meta.env.DEV && browser}
   <Svane />
 {/if} -->
-
+<Analytics />
 <slot />
