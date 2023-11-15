@@ -4,7 +4,6 @@
   import { browser } from '$app/environment';
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
   locale.set('en');
   export async function load() {
     if (browser) {
@@ -14,8 +13,24 @@
   }
   // import { Svane } from '@shipbit/svane';
   // import { browser } from '$app/environment';
+  try {
+    if (typeof window !== 'undefined' && window) {
+      const googleAnalyticsId = 'G-8R12WG9TGW';
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', googleAnalyticsId);
+    }
+  } catch (error) {
+    console.error('Failed to initialize Analytics');
+  }
 </script>
 
+<svelte:head>
+  <script async src="https://www.googletagmanager.com/gtag/js"></script>
+</svelte:head>
 <Modals>
   <div
     slot="backdrop"
@@ -31,4 +46,3 @@
 {/if} -->
 
 <slot />
-<GoogleAnalytics properties={['G-8R12WG9TGW']} />
