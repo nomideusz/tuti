@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-  <script async src="https://www.googletagmanager.com/gtag/js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8R12WG9TGW"></script>
 </svelte:head>
 <Modals>
   <div
