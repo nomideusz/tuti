@@ -1,4 +1,3 @@
-/* src/analytics.js */
 import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
 

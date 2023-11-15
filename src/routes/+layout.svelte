@@ -4,7 +4,7 @@
   import { browser } from '$app/environment';
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import analytics from './analytics';
+  import analytics from '$lib/analytics';
   locale.set('en');
   export async function load() {
     if (browser) {
