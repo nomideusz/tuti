@@ -1,6 +1,5 @@
 <script>
   import PlainText from './PlainText.svelte';
-  import { fetchJSON } from '$lib/util';
   import { classNames } from '$lib/util';
   import { createEventDispatcher } from 'svelte';
   import { isEditing } from '$lib/stores.js';
