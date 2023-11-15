@@ -29,5 +29,6 @@
 <!-- {#if import.meta.env.DEV && browser}
   <Svane />
 {/if} -->
-<Analytics />
+
 <slot />
+<Analytics />
