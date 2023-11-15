@@ -2,11 +2,11 @@ import Analytics from 'analytics';
 import googleAnalytics from '@analytics/google-analytics';
 
 const analytics = Analytics({
-  app: 'app-name',
+  app: 'tutitutu',
 
   plugins: [
     googleAnalytics({
-      trackingId: 'G-8R12WG9TGW'
+      measurementIds: ['G-8R12WG9TGW']
     })
   ]
 });
