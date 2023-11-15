@@ -16,7 +16,6 @@
   // import { browser } from '$app/environment';
 </script>
 
-<Analytics />
 <Modals>
   <div
     slot="backdrop"
@@ -30,4 +29,5 @@
 <!-- {#if import.meta.env.DEV && browser}
   <Svane />
 {/if} -->
+<Analytics />
 <slot />
