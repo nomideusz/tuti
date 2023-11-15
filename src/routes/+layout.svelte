@@ -4,7 +4,6 @@
   import { browser } from '$app/environment';
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
   locale.set('pl');
   export async function load() {
     if (browser) {
@@ -16,7 +15,6 @@
   // import { browser } from '$app/environment';
 </script>
 
-<GoogleAnalytics properties={['G-8R12WG9TGW']} />
 <Modals>
   <div
     slot="backdrop"
