@@ -5,7 +5,7 @@
   import '$lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
   import Analytics from '$lib/components/Analytics.svelte';
-  // locale.set('en');
+  locale.set(window.navigator.language).split('-')[0];
   export async function load() {
     if (browser) {
       locale.set(window.navigator.language).split('-')[0];
