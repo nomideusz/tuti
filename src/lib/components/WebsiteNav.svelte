@@ -7,6 +7,7 @@
   import { windowScrollStore } from 'svelte-legos';
   import { windowSizeStore } from 'svelte-legos';
   import { onMount } from 'svelte';
+  import { _ } from 'svelte-i18n';
 
   const size = windowSizeStore();
   const position = windowScrollStore();
@@ -87,8 +88,7 @@
         >
         <span
           class="block align-top text-primary tracking-[0.13em]"
-          style="font-size: clamp(0.912rem, calc(1.8dvw * 0.76), 1.34rem);"
-          >architektura wnętrz</span
+          style="font-size: clamp(0.912rem, calc(1.8dvw * 0.76), 1.34rem);">{$_('slogan')}</span
         >
       </a>
       <!-- END LOGO -->

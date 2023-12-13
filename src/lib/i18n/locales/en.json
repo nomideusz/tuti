@@ -1,9 +1,11 @@
 {
   "title": "TUTITUTU",
+  "slogan": "interior design",
   "realisations": "Realisations",
   "workshop": "Workshop",
   "publications": "Publications",
   "references": "References",
+  "member": "member of",
   "contact": "Contact",
   "button.addPublication": "Add Publication",
   "field.birth": "Date of birth",

@@ -1,10 +1,12 @@
 {
   "title": "TUTITUTU",
+  "slogan": "architektura wnętrz",
   "realisations": "Realizacje",
   "workshop": "Pracownia",
   "publications": "Publikacje",
   "references": "Referencje",
   "contact": "Kontakt",
+  "member": "członek",
   "button.addPublication": "Dodaj nową Publikację",
   "field.birth": "Date of birth",
   "field.genre": "Genre"

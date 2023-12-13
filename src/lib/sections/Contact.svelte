@@ -31,7 +31,7 @@
         >
         <span
           class="block align-top tracking-[0.13em]"
-          style="font-size: clamp(1.06rem, calc(2.4dvw * 0.76), 1.9rem);">architektura wnętrz</span
+          style="font-size: clamp(1.06rem, calc(2.4dvw * 0.76), 1.9rem);">{$_('slogan')}</span
         >
       </a>
       <!-- END LOGO -->
@@ -70,7 +70,7 @@
         </li>
       </ul>
       <div class="mt-[3.9dvw] gap-6 flex justify-center">
-        <p class="lg:text-[1.4dvw] uppercase mt-4 sm:mt-3 tracking-wider">członek</p>
+        <span class="lg:text-[1.4dvw] uppercase mt-4 sm:mt-3 tracking-wider">{$_('member')}</span>
         <Img
           src={logo_saw}
           class="w-[40dvw] md:w-[30dvw] lg:w-[18dvw]"
