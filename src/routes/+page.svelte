@@ -181,8 +181,9 @@
       <Img
         src={$size.width < 640 ? mmMobile : mmdesktop}
         {placeholder}
+        sizes="100vw"
         alt="Maria Kowalewska"
-        class="h-screen object-cover object-bottom"
+        class="w-screen h-screen object-cover object-bottom"
       />
     </NotEditable>
 

@@ -1,6 +1,6 @@
 # Using a multi-stage build process
 # Stage 1: Build
-FROM node:18-slim AS builder
+FROM node:24-slim AS builder
 WORKDIR /app
 
 # Install packages needed to build node modules
@@ -24,7 +24,7 @@ RUN --mount=type=secret,id=DB_PATH \
     npm run build
 
 # Stage 2: Run
-FROM node:18-slim AS runner
+FROM node:24-slim AS runner
 WORKDIR /app
 
 RUN apt update -qq && \

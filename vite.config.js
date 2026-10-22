@@ -22,7 +22,7 @@ export default defineConfig({
         run: new URLSearchParams('w=600;1024;1300;1600;1920;2400&format=webp;jpg'),
         // add new profile(s)
         real: new URLSearchParams(
-          'w=600;1024;1300;1600;1920;2400&fit=cover&format=webp;jpg&withoutEnlargement'
+          'w=600;1024;1300;1600;1920;2400;3200;3840&fit=cover&format=webp;jpg&withoutEnlargement'
         ),
         jpg: new URLSearchParams('w=1024&fit=cover&format=jpg')
       }

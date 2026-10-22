@@ -35,7 +35,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@zerodevx/svelte-img": "^2.1.0",
     "autoprefixer": "^10.4.14",
-    "better-sqlite3": "^8.4.0",
+    "better-sqlite3": "^12.9.0",
     "bigger-picture": "^1.1.11",
     "camelcase-keys": "^8.0.2",
     "macy": "^2.5.1",
