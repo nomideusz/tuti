@@ -1,7 +1,7 @@
 <script>
-  import { currentUser } from '$lib/stores';
-  import { resizeImage, classNames, getDimensions, is_safari, nanoid } from '$lib/util';
-  import uploadAsset from '$lib/uploadAsset';
+  import { currentUser } from '#lib/stores';
+  import { resizeImage, classNames, getDimensions, is_safari, nanoid } from '#lib/util';
+  import uploadAsset from '#lib/uploadAsset';
 
   export let src;
   export let alt;

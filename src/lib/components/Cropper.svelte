@@ -3,7 +3,7 @@
   // https://github.com/ValentinH/svelte-easy-crop/blob/main/src/lib/Cropper.svelte
   import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 
-  import * as helpers from '$lib/cropperUtil';
+  import * as helpers from '#lib/cropperUtil';
 
   export let image;
   export let crop = { x: 0, y: 0 };
@@ -269,8 +269,7 @@
       class:cr-round={cropShape === 'cr-round'}
       class:cr-grid={showGrid}
       style="width: {cropperSize.width}px; height: {cropperSize.height}px;"
-      data-testid="cropper"
-    />
+      data-testid="cropper"></div>
   {/if}
 </div>
 

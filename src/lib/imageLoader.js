@@ -1,12 +1,12 @@
-import { realisations } from '$lib/stores';
+import { realisations } from '#lib/stores';
 import { sortImagesByConfig } from './imageSorter';
 
-const allImageGlobs = import.meta.glob('$lib/images/originals/*/*.jpg', {
+const allImageGlobs = import.meta.glob('#lib/images/originals/*/*.jpg', {
   import: 'default',
   eager: true,
   query: { as: 'real' }
 });
-const allConfigGlobs = import.meta.glob('$lib/images/originals/*/config.json', {
+const allConfigGlobs = import.meta.glob('#lib/images/originals/*/config.json', {
   eager: true
 });
 

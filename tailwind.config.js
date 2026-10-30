@@ -12,7 +12,6 @@ const em = (px, base) => `${round(px / base)}em`;
 export default {
   content: [
     './src/**/*.{html,js,svelte,ts}',
-    './node_modules/@shipbit/svane/**/*.{html,js,svelte}'
   ],
   theme: {
     screens: {

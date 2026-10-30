@@ -1,5 +1,5 @@
 <script>
-  import { classNames } from '$lib/util';
+  import { classNames } from '#lib/util';
   export let checked = false;
   export let size = 'default';
   $: className = classNames(
@@ -19,7 +19,7 @@
 
 <div class="inline-flex items-center">
   <button class={className} on:click={toggle}>
-    <div class={innerClassName} />
+    <div class={innerClassName}></div>
   </button>
   <div class="px-2"><slot /></div>
 </div>

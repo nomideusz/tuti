@@ -1,7 +1,7 @@
 <script>
-  import RichText from '$lib/components/RichText.svelte';
-  import removeWidows from '$lib/scripts/removeWidows';
-  import bgWorkshop from '$lib/images/originals/1200px_bg_workshop.jpg?format=avif';
+  import RichText from '#lib/components/RichText.svelte';
+  import removeWidows from '#lib/scripts/removeWidows';
+  import bgWorkshop from '#lib/images/originals/1200px_bg_workshop.jpg?format=avif';
   import { _ } from 'svelte-i18n';
   export let workshop;
 </script>

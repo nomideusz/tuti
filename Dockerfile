@@ -9,7 +9,7 @@ RUN apt update -qq && \
 
 # Install node modules
 COPY package.json package-lock.json ./
-RUN npm ci --omit dev
+RUN npm ci
 
 # copy source across (excludes items filtered by .dockerignore)
 COPY . .
@@ -21,7 +21,8 @@ RUN --mount=type=secret,id=DB_PATH \
     DB_PATH="$(cat /run/secrets/DB_PATH)" \
     ADMIN_PASSWORD="$(cat /run/secrets/ADMIN_PASSWORD)" \
     ORIGIN="$(cat /run/secrets/ORIGIN)" \
-    npm run build
+    npm run build && \
+    npm prune --omit=dev
 
 # Stage 2: Run
 FROM node:24-slim AS runner

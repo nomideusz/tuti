@@ -1,8 +1,8 @@
 <script>
   import PlainText from './PlainText.svelte';
-  import { classNames } from '$lib/util';
+  import { classNames } from '#lib/util';
   import { createEventDispatcher } from 'svelte';
-  import { isEditing } from '$lib/stores.js';
+  import { isEditing } from '#lib/stores.js';
 
   const dispatch = createEventDispatcher();
 

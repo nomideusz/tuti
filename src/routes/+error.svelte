@@ -1,19 +1,10 @@
-<script context="module">
-  import { page } from '$app/stores';
-  import WebsiteHeader from '$lib/components/WebsiteHeader.svelte';
-  export function load({ error, status }) {
-    return {
-      props: {
-        title: `${status}: ${error.message}`
-      }
-    };
-  }
-  export let title;
+<script>
+  import { page } from '$app/state';
+  import WebsiteHeader from '#lib/components/WebsiteHeader.svelte';
   let showUserMenu = false;
 </script>
 
-<html lang="en" class="h-screen w-full bg-accent">
-  <body class="flex h-full">
+<div class="flex h-screen w-full bg-accent">
     <div class="max-w-[50rem] flex flex-col mx-auto w-full h-full">
       <header class="mb-auto flex justify-center z-50 w-full py-4">
         <WebsiteHeader bind:showUserMenu />
@@ -21,9 +12,9 @@
 
       <div class="text-center py-10 px-4 sm:px-6 lg:px-8">
         <h1 class="block text-7xl font-bold text-gray-800 sm:text-9xl dark:text-white">
-          {$page.status}
+          {page.status}
         </h1>
-        <p class="mt-3 text-gray-600 dark:text-gray-400">{$page.error.message}</p>
+        <p class="mt-3 text-gray-600 dark:text-gray-400">{page.error.message}</p>
         <p class="text-gray-600 dark:text-gray-400">Sorry, we couldn't find your page.</p>
         <div class="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3">
           <a
@@ -43,7 +34,6 @@
         </div>
       </div>
 
-      <footer class="mt-auto text-center py-5" />
+      <footer class="mt-auto text-center py-5"></footer>
     </div>
-  </body>
-</html>
+</div>

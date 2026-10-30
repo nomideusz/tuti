@@ -1,8 +1,8 @@
 <script>
-  import bgReferences from '$lib/images/originals/480px_bg_references.jpg?format=avif';
+  import bgReferences from '#lib/images/originals/480px_bg_references.jpg?format=avif';
   import { FxReveal as Img } from '@zerodevx/svelte-img';
-  import ref1 from '$lib/images/originals/ref1.jpg?as=real';
-  import ref2 from '$lib/images/originals/ref2.jpg?as=real';
+  import ref1 from '#lib/images/originals/ref1.jpg?as=real';
+  import ref2 from '#lib/images/originals/ref2.jpg?as=real';
   import { _ } from 'svelte-i18n';
 </script>
 

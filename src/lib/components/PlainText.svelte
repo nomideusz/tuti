@@ -1,5 +1,5 @@
 <script>
-  import { isEditing } from '$lib/stores.js';
+  import { isEditing } from '#lib/stores.js';
 
   export let content;
   export let multiLine = false;

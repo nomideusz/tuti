@@ -1,7 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
   import PrimaryButton from './PrimaryButton.svelte';
-  import { currentUser } from '$lib/stores.js';
+  import { currentUser } from '#lib/stores.js';
 </script>
 
 <div class="text-accent">

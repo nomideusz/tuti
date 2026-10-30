@@ -1,17 +1,17 @@
 <script>
-  import bgRealisations from '$lib/images/originals/400px_bg_realisations.jpg?format=avif';
-  import bgRealisationsMobile from '$lib/images/originals/400px_bg_realisations.jpg?rotate=90&format=avif';
-  import { isEditing } from '$lib/stores.js';
-  import SecondaryButton from '$lib/components/SecondaryButton.svelte';
+  import bgRealisations from '#lib/images/originals/400px_bg_realisations.jpg?format=avif';
+  import bgRealisationsMobile from '#lib/images/originals/400px_bg_realisations.jpg?rotate=90&format=avif';
+  import { isEditing } from '#lib/stores.js';
+  import SecondaryButton from '#lib/components/SecondaryButton.svelte';
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
-  import { openModal, closeAllModals } from 'svelte-modals';
+  import { modals } from 'svelte-modals';
   import { _ } from 'svelte-i18n';
 
-  import ConfirmModal from '$lib/components/ConfirmModal.svelte';
-  // import { realisations } from '$lib/stores';
+  import ConfirmModal from '#lib/components/ConfirmModal.svelte';
+  // import { realisations } from '#lib/stores';
 
-  import Realisation from '$lib/components/Realisation.svelte';
+  import Realisation from '#lib/components/Realisation.svelte';
   export let realisations;
 
   let lastId = realisations.length > 0 ? Math.max(...realisations.map(r => r.id)) : 0;
@@ -27,14 +27,14 @@
     realisations = realisations; // trigger update
   }
   function handleDelete(index) {
-    openModal(ConfirmModal, {
+    modals.open(ConfirmModal, {
       title: 'Are you absolutely sure?',
       labels: {
         cancel: 'No',
         confirm: 'Yes'
       },
       onConfirm: () => {
-        closeAllModals();
+        modals.closeAll();
         deleteRealisation(index);
       }
     });

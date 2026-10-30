@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite';
+import adapter from '@sveltejs/adapter-node';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from '@zerodevx/svelte-img/vite';
 import path from 'path';
+
+const __dirname = import.meta.dirname;
 
 export default defineConfig({
   optimizeDeps: {
@@ -15,7 +18,11 @@ export default defineConfig({
     }
   },
   plugins: [
-    sveltekit(),
+    sveltekit({
+      adapter: adapter({ out: 'build', precompress: false, envPrefix: '' }),
+      // Same as the old checkOrigin: false.
+      csrf: { trustedOrigins: ['*'] }
+    }),
     imagetools({
       profiles: {
         // override defaults

@@ -1,27 +1,26 @@
 <script>
-  import { fetchJSON } from '$lib/util';
-  import PrimaryButton from '$lib/components/PrimaryButton.svelte';
-  import LoginMenu from '$lib/components/LoginMenu.svelte';
-  import { currentUser, isEditing } from '$lib/stores.js';
-  import WebsiteHeader from '$lib/components/WebsiteHeader.svelte';
-  import Workshop from '$lib/sections/Workshop.svelte';
-  import Publications from '$lib/sections/Publications.svelte';
-  import Contact from '$lib/sections/Contact.svelte';
-  import Realisations from '$lib/sections/Realisations.svelte';
-  import References from '$lib/sections/References.svelte';
+  import { fetchJSON } from '#lib/util';
+  import PrimaryButton from '#lib/components/PrimaryButton.svelte';
+  import LoginMenu from '#lib/components/LoginMenu.svelte';
+  import { currentUser, isEditing } from '#lib/stores.js';
+  import WebsiteHeader from '#lib/components/WebsiteHeader.svelte';
+  import Workshop from '#lib/sections/Workshop.svelte';
+  import Publications from '#lib/sections/Publications.svelte';
+  import Contact from '#lib/sections/Contact.svelte';
+  import Realisations from '#lib/sections/Realisations.svelte';
+  import References from '#lib/sections/References.svelte';
   import Img from '@zerodevx/svelte-img';
-  import mmdesktop from '$lib/images/originals/m.jpg?as=real';
-  import mmMobile from '$lib/images/originals/m.jpg?as=real';
-  import placeholder from '$lib/images/previews/m.svg';
-  import NotEditable from '$lib/components/NotEditable.svelte';
+  import mmdesktop from '#lib/images/originals/m.jpg?as=real';
+  import mmMobile from '#lib/images/originals/m.jpg?as=real';
+  import placeholder from '#lib/images/previews/m.svg';
+  import NotEditable from '#lib/components/NotEditable.svelte';
   import { Scrollactive } from 'svelte-scrollactive';
-  import { browser } from '$app/environment';
-  import { navigating } from '$app/stores';
-  import { windowSizeStore } from 'svelte-legos';
+  import { browser } from '$app/env';
+  import { navigating } from '$app/state';
   import { locale } from 'svelte-i18n';
   import { get } from 'svelte/store';
   import { _ } from 'svelte-i18n';
-  const size = windowSizeStore();
+  let innerWidth = 0;
   export let data;
 
   // --------------------------------------------------------------------------
@@ -158,6 +157,8 @@
   }
 </script>
 
+<svelte:window bind:innerWidth />
+
 <svelte:head>
   <title>TUTITUTU architektura wnętrz</title>
   <meta name="description" content="TUTITUTU architektura wnętrz" />
@@ -168,7 +169,7 @@
 <main class="bg-surface">
   <section id="start" class="h-screen relative">
     {#if browser}
-      {#key $navigating}
+      {#key navigating.to}
         <Scrollactive activeClass="is-active" scrollOffset="0" offset="300" duration="400">
           <WebsiteHeader bind:showUserMenu on:cancel={initOrReset} on:save={savePage}>
             <PrimaryButton on:click={toggleEdit}>Edit page</PrimaryButton>
@@ -179,7 +180,7 @@
     {/if}
     <NotEditable>
       <Img
-        src={$size.width < 640 ? mmMobile : mmdesktop}
+        src={innerWidth < 640 ? mmMobile : mmdesktop}
         {placeholder}
         sizes="100vw"
         alt="Maria Kowalewska"

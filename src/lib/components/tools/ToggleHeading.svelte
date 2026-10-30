@@ -1,7 +1,7 @@
 <script>
-  import { classNames } from '$lib/util';
+  import { classNames } from '#lib/util';
   import { setBlockType } from 'prosemirror-commands';
-  import { blockTypeActive } from '$lib/editor/prosemirrorUtil';
+  import { blockTypeActive } from '#lib/editor/prosemirrorUtil';
 
   export let editorView;
   export let editorState;

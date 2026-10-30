@@ -1,10 +1,10 @@
 <script>
   import '../app.css';
-  import { Modals, closeModal } from 'svelte-modals';
-  import { browser } from '$app/environment';
-  import '$lib/i18n';
+  import { Modals } from 'svelte-modals';
+  import { browser } from '$app/env';
+  import '#lib/i18n';
   import { locale, waitLocale } from 'svelte-i18n';
-  import Analytics from '$lib/components/Analytics.svelte';
+  import Analytics from '#lib/components/Analytics.svelte';
   if (browser) {
     console.log(window.navigator.language);
     const lang = window.navigator.language === 'pl' ? 'pl' : 'en';
@@ -17,18 +17,19 @@
     await waitLocale();
   }
   // import { Svane } from '@shipbit/svane';
-  // import { browser } from '$app/environment';
+  // import { browser } from '$app/env';
 </script>
 
 <Modals>
-  <div
-    slot="backdrop"
-    class="fixed inset-0 z-50 overflow-y-auto text-black"
-    on:click={closeModal}
-    on:keypress={closeModal}
-    role="button"
-    tabindex="0"
-  />
+  {#snippet backdrop({ close })}
+    <div
+      class="fixed inset-0 z-50 overflow-y-auto text-black"
+      on:click={() => close()}
+      on:keypress={() => close()}
+      role="button"
+      tabindex="0"
+    ></div>
+  {/snippet}
 </Modals>
 <!-- {#if import.meta.env.DEV && browser}
   <Svane />

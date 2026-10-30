@@ -1,7 +1,7 @@
 <script>
-  import { classNames } from '$lib/util';
+  import { classNames } from '#lib/util';
   import { toggleMark } from 'prosemirror-commands';
-  import { createLink } from '$lib/editor/prosemirrorCommands';
+  import { createLink } from '#lib/editor/prosemirrorCommands';
 
   export let editorView;
   export let editorState;

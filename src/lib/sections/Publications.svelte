@@ -1,10 +1,10 @@
 <script>
-  import PlainText from '$lib/components/PlainText.svelte';
-  import { currentUser, isEditing } from '$lib/stores.js';
-  import bgPublications from '$lib/images/originals/480px_bg_publications.jpg?format=avif';
-  import bgPublicationlgobile from '$lib/images/originals/480px_bg_publications.jpg?rotate=270&format=avif';
-  import Publication from '$lib/components/Publication.svelte';
-  import SecondaryButton from '$lib/components/SecondaryButton.svelte';
+  import PlainText from '#lib/components/PlainText.svelte';
+  import { currentUser, isEditing } from '#lib/stores.js';
+  import bgPublications from '#lib/images/originals/480px_bg_publications.jpg?format=avif';
+  import bgPublicationlgobile from '#lib/images/originals/480px_bg_publications.jpg?rotate=270&format=avif';
+  import Publication from '#lib/components/Publication.svelte';
+  import SecondaryButton from '#lib/components/SecondaryButton.svelte';
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
   import { _ } from 'svelte-i18n';

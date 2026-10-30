@@ -1,14 +1,15 @@
 <script>
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
 
-  $: {
+  $effect(() => {
+    const page_path = page.url.pathname;
     if (typeof gtag !== 'undefined') {
       gtag('config', 'G-8R12WG9TGW', {
         page_title: document.title,
-        page_path: $page.url.pathname
+        page_path
       });
     }
-  }
+  });
 </script>
 
 <svelte:head>

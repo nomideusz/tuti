@@ -1,8 +1,8 @@
 <script>
-  import { classNames, resizeImage, getDimensions, nanoid, is_safari } from '$lib/util';
-  import uploadAsset from '$lib/uploadAsset';
-  import { insertImage } from '$lib/editor/prosemirrorCommands';
-  import { currentUser } from '$lib/stores';
+  import { classNames, resizeImage, getDimensions, nanoid, is_safari } from '#lib/util';
+  import uploadAsset from '#lib/uploadAsset';
+  import { insertImage } from '#lib/editor/prosemirrorCommands';
+  import { currentUser } from '#lib/stores';
 
   export let editorView;
   export let editorState;

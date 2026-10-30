@@ -1,9 +1,9 @@
 <script>
-  import PlainText from '$lib/components/PlainText.svelte';
-  import bgContact from '$lib/images/originals/400px_bg_contact.jpg?format=avif';
-  import bgContactMobile from '$lib/images/originals/400px_bg_contact.jpg?rotate=90&format=avif';
+  import PlainText from '#lib/components/PlainText.svelte';
+  import bgContact from '#lib/images/originals/400px_bg_contact.jpg?format=avif';
+  import bgContactMobile from '#lib/images/originals/400px_bg_contact.jpg?rotate=90&format=avif';
   import Img from '@zerodevx/svelte-img';
-  import logo_saw from '$lib/images/logo_saw.png?w=300&as=run:0';
+  import logo_saw from '#lib/images/logo_saw.png?w=300&as=run:0';
   import { _ } from 'svelte-i18n';
   export let contact;
 </script>

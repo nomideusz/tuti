@@ -7,7 +7,7 @@ let bp;
  * If no target provided, instance will use document.body.
  */
 export async function loadBp(target) {
-	const BiggerPicture = (await import('bigger-picture/svelte')).default;
+	const BiggerPicture = (await import('bigger-picture/vanilla')).default;
 	if (target) {
 		return BiggerPicture({ target });
 	}

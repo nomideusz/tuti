@@ -1,7 +1,7 @@
 <script>
-  import WebsiteNav from '$lib/components/WebsiteNav.svelte';
-  import Modal from '$lib/components/Modal.svelte';
-  import EditorToolbar from '$lib/components/tools/EditorToolbar.svelte';
+  import WebsiteNav from '#lib/components/WebsiteNav.svelte';
+  import Modal from '#lib/components/Modal.svelte';
+  import EditorToolbar from '#lib/components/tools/EditorToolbar.svelte';
   import { createEventDispatcher } from 'svelte';
 
   export let showUserMenu = false;

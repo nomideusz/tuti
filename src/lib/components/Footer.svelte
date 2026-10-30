@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
-  import { fetchJSON } from '$lib/util';
-  import NotEditable from '$lib/components/NotEditable.svelte';
-  import RichText from '$lib/components/RichText.svelte';
+  import { fetchJSON } from '#lib/util';
+  import NotEditable from '#lib/components/NotEditable.svelte';
+  import RichText from '#lib/components/RichText.svelte';
   import Logo from './Logo.svelte';
 
   export let contact;

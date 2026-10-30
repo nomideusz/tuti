@@ -1,5 +1,5 @@
 <script>
-  import Limiter from '$lib/components/Limiter.svelte';
+  import Limiter from '#lib/components/Limiter.svelte';
   export let form;
 </script>
 

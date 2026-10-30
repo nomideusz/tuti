@@ -1,5 +1,5 @@
 <script>
-  import { isEditing } from '$lib/stores.js';
+  import { isEditing } from '#lib/stores.js';
   import Img from '@zerodevx/svelte-img';
 
   export let src;

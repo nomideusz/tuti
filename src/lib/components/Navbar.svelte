@@ -1,5 +1,5 @@
 <script>
-  import { isEditing, currentUser, LINKS, activeLink } from '$lib/stores.js';
+  import { isEditing, currentUser, LINKS, activeLink } from '#lib/stores.js';
   export let showUserMenu;
   import { Hamburger } from 'svelte-hamburgers';
   export let isDynamic, open;

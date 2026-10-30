@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher, onMount, onDestroy } from 'svelte';
-  import { browser } from '$app/environment';
-  import { classNames } from '$lib/util';
+  import { browser } from '$app/env';
+  import { classNames } from '#lib/util';
 
   // Only relevant for mobile
   export let position = 'bottom';
@@ -22,7 +22,7 @@
 </script>
 
 <div class="relative z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
   <div class="fixed inset-0 z-50 overflow-y-auto" on:mouseup={onMouseUp}>
     <div

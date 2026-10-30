@@ -1,4 +1,4 @@
-import { getAsset } from '$lib/api';
+import { getAsset } from '#lib/api';
 import { error } from '@sveltejs/kit';
 
 export const GET = async ({ params, setHeaders }) => {

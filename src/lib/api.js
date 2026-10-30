@@ -1,5 +1,5 @@
 import Database from 'better-sqlite3';
-import { nanoid } from '$lib/util';
+import { nanoid } from '#lib/util';
 import { Blob } from 'node:buffer';
 
 // import { DB_PATH, ADMIN_PASSWORD } from '$env/static/private';

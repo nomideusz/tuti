@@ -1,19 +1,17 @@
 <script>
-  import { classNames } from '$lib/util';
+  import { classNames } from '#lib/util';
   import NotEditable from './NotEditable.svelte';
   import Navbar from './Navbar.svelte';
-  import LogoSaw from '$lib/components/LogoSaw.svelte';
-  import { isEditing, LINKS } from '$lib/stores.js';
-  import { windowScrollStore } from 'svelte-legos';
-  import { windowSizeStore } from 'svelte-legos';
+  import LogoSaw from '#lib/components/LogoSaw.svelte';
+  import { isEditing, LINKS } from '#lib/stores.js';
   import { onMount } from 'svelte';
   import { _ } from 'svelte-i18n';
 
-  const size = windowSizeStore();
-  const position = windowScrollStore();
+  let innerHeight = 0;
+  let scrollY = 0;
   const SCROLL_BUFFER = 200;
 
-  $: y = $position.y;
+  $: y = scrollY;
   let lastScrollPosition = 0; // Pozycja przewijania przy ostatniej aktualizacji
   let isActive = true;
   let isDynamic = false;
@@ -22,13 +20,13 @@
     const newScrollPosition = y;
 
     // Jeśli jesteśmy na pierwszej stronie
-    if (newScrollPosition < $size.height) {
+    if (newScrollPosition < innerHeight) {
       isActive = true;
       isDynamic = false;
     } else {
       if (
         newScrollPosition < lastScrollPosition ||
-        newScrollPosition - $size.height < SCROLL_BUFFER
+        newScrollPosition - innerHeight < SCROLL_BUFFER
       ) {
         isActive = true;
         isDynamic = true;
@@ -45,7 +43,7 @@
     onScroll();
   });
 
-  let open;
+  let open = false;
 
   // TODO: Replace with a globally managed context menu implementation (only one active)
   export let showUserMenu = undefined;
@@ -70,8 +68,8 @@
       {isActive && !$isEditing ? 'active' : ''}
       {isDynamic && !$isEditing ? 'dynamic' : 'pt-4 md:pt-10 xl:pt-12'}
       {isDynamic && $isEditing ? 'hidden' : ''}
-      {y >= $size.height && y < $size.height + SCROLL_BUFFER ? 'hidden' : ''}"
-    style={y < $size.height ? '' : 'position: fixed; width:100%;'}
+      {y >= innerHeight && y < innerHeight + SCROLL_BUFFER ? 'hidden' : ''}"
+    style={y < innerHeight ? '' : 'position: fixed; width:100%;'}
   >
     <div class="md:flex justify-between items-start">
       <!-- LOGO -->
@@ -105,7 +103,7 @@
   </header>
 </NotEditable>
 
-<svelte:window on:keydown={onKeyDown} on:scroll={onScroll} />
+<svelte:window bind:innerHeight bind:scrollY on:keydown={onKeyDown} on:scroll={onScroll} />
 
 <style>
   li {

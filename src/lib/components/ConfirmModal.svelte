@@ -1,5 +1,5 @@
 <script>
-  import { closeModal } from 'svelte-modals';
+  import { modals } from 'svelte-modals';
 
   // provided by <Modals />
   export let isOpen;
@@ -16,7 +16,7 @@
     <div class="contents">
       <h2>{title}</h2>
       <div class="flex justify-between mt-6">
-        <button class="border px-4 py-2" type="button" on:click={closeModal}>
+        <button class="border px-4 py-2" type="button" on:click={() => modals.close()}>
           {labels?.cancel}
         </button>
         <button class="border text-accent px-4 py-2" type="button" on:click={onConfirm}>

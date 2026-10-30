@@ -1,5 +1,5 @@
 <script>
-  import { activeEditorView } from '$lib/stores.js';
+  import { activeEditorView } from '#lib/stores.js';
   import { onDestroy } from 'svelte';
   import ToggleMark from './ToggleMark.svelte';
   import ToggleBulletList from './ToggleBulletList.svelte';
@@ -86,7 +86,7 @@
                 /></svg
               >
             </CreateLink>
-            <div class="hidden sm:block w-px bg-gray-300 mx-3" />
+            <div class="hidden sm:block w-px bg-gray-300 mx-3"></div>
             <ToggleHeading {editorState} {editorView}>
               <svg
                 class="h-3 w-3 sm:h-4 sm:w-4"
@@ -111,7 +111,7 @@
                 /></svg
               >
             </ToggleBlockquote>
-            <div class="hidden sm:block w-px bg-gray-300 mx-3" />
+            <div class="hidden sm:block w-px bg-gray-300 mx-3"></div>
             <ToggleBulletList {editorState} {editorView}>
               <svg
                 class="h-3 w-3 sm:h-4 sm:w-4"
@@ -136,7 +136,7 @@
                 /></svg
               >
             </ToggleOrderedList>
-            <div class="hidden sm:block w-px bg-gray-300 mx-3" />
+            <div class="hidden sm:block w-px bg-gray-300 mx-3"></div>
             <InsertImage {editorState} {editorView}>
               <svg
                 class="h-3 w-3 sm:h-4 sm:w-4"
@@ -152,9 +152,9 @@
           </div>
         {/if}
 
-        <div class="flex-1 h-8" />
+        <div class="flex-1 h-8"></div>
         <SecondaryButton type="button" on:click={handleCancel}>Cancel</SecondaryButton>
-        <div class="shrink-0 w-2 sm:w-4" />
+        <div class="shrink-0 w-2 sm:w-4"></div>
         <PrimaryButton type="button" on:click={handleSave}>Save</PrimaryButton>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { getCurrentUser } from '$lib/api';
+import { getCurrentUser } from '#lib/api';
 import { locale } from 'svelte-i18n';
 
 export async function handle({ event, resolve }) {

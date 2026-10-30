@@ -1,16 +1,16 @@
 <script>
   import PlainText from './PlainText.svelte';
-  import { classNames } from '$lib/util';
+  import { classNames } from '#lib/util';
   import { createEventDispatcher } from 'svelte';
-  import { isEditing } from '$lib/stores.js';
+  import { isEditing } from '#lib/stores.js';
   import { onMount } from 'svelte';
-  import { loadBp } from '$lib/load-bp';
+  import { loadBp } from '#lib/load-bp';
   import Image from './Image.svelte';
   import 'bigger-picture/css';
   import { flip } from 'svelte/animate';
-  import { openModal, closeAllModals } from 'svelte-modals';
+  import { modals } from 'svelte-modals';
 
-  import ConfirmModal from '$lib/components/ConfirmModal.svelte';
+  import ConfirmModal from '#lib/components/ConfirmModal.svelte';
   import { dndzone, SOURCES, TRIGGERS } from 'svelte-dnd-action';
 
   const dispatch = createEventDispatcher();
@@ -59,14 +59,14 @@
     if ((event.key === 'Enter' || event.key === ' ') && dragDisabled) dragDisabled = false;
   }
   function handleDelete(index, src) {
-    openModal(ConfirmModal, {
+    modals.open(ConfirmModal, {
       title: 'Are you absolutely sure?',
       labels: {
         cancel: 'No',
         confirm: 'Yes'
       },
       onConfirm: () => {
-        closeAllModals();
+        modals.closeAll();
         deleteItem(index, src);
       }
     });

@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import { storeAsset } from '$lib/api';
+import { storeAsset } from '#lib/api';
 
 export async function PUT({ request }) {
   const data = await request.formData();

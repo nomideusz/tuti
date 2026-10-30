@@ -1,7 +1,7 @@
 <script>
-  import Limiter from '$lib/components/Limiter.svelte';
-  import PrimaryButton from '$lib/components/PrimaryButton.svelte';
-  import Input from '$lib/components/Input.svelte';
+  import Limiter from '#lib/components/Limiter.svelte';
+  import PrimaryButton from '#lib/components/PrimaryButton.svelte';
+  import Input from '#lib/components/Input.svelte';
   export let form;
 </script>
 
